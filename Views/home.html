@@ -1,0 +1,16 @@
+  <input class="add" ng-model="taskInput" type="text" maxlength="15" required/>
+            <button ng-click="addTask()"><p>Enter</p></button>
+
+            <!-- check all boxes  -->
+            <div class="tops">
+            <!-- delete button to delete every checked box -->
+            <button class="delete" ng-click="removeCheckedTask($pindex)"><p>Delete all checked boxes</p></button>
+            </div>
+            <div class="container">
+                <div class="list" ng-repeat="newtaskslist in newtasks track by $index">
+            <!--Where the add feature places the Obj-->
+                   <h4>{{ obj }} </h4>
+                    <p class="items"> {{ tasklist.label }}</p>
+
+            <!-- my check box input -->
+                    <input class="checkbox" type="checkbox" ng-model="newtaskslist.isChecked" />

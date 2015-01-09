@@ -1,0 +1,61 @@
+    /*  this targets the area where we are working */
+.container{
+    margin-top: 10px;
+    width:300px;
+}
+    /* This targets the boxes inside the container*/
+.list{
+    width:400px;
+    height:90px;
+    background-color:#74cc63;
+    float:left;
+    margin:10px;
+    position:relative;
+}
+    /* This targets the items inside the list   */
+.items{
+        width:100px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top:25px;
+    }
+
+    /* This targets the delete button */
+
+.delete{
+    margin-top: 22px;
+    width:200px;
+    line-height: 16px;
+    margin-left: 25px;
+}
+    /* This targets the input field */
+.add{
+    width:145px;
+    height:22px;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+    /* This targets all the buttons */
+button{
+    height: 24px;
+    border-radius:15px;
+    background-color: #9f089f;
+}
+    /* This targets the paragraphs inside the buttons */
+button p{
+    color:#f4f4f4;
+}
+    /* This targets the checkbox inside the list */
+.checkbox{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.userscontainer{
+    width:600px;
+    clear:both;
+}
+.contentmanager{
+    width:600px;
+    clear:both;
+}
