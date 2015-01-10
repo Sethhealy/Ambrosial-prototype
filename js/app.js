@@ -1,4 +1,4 @@
-var app = angular.module("Caterme", ['firebase'])
+var app = angular.module("Caterme", ['ngRoute','firebase', 'xeditable'])
 
     app.config(['$routeProvider', function($routeProvider){
 
@@ -8,6 +8,10 @@ var app = angular.module("Caterme", ['firebase'])
             controller: 'HomeController'
         });
     }]);
+
+    app.run(function(editableOptions) {
+        editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+    });
     //calling the controller function
 app.controller("CaterController", function ($scope, CaterService) {
 
