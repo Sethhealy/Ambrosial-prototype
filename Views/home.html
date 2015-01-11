@@ -2,7 +2,7 @@
                 <div class="list" ng-repeat="stuff in data">
             <!--Where the add feature places the Obj-->
                 <div>
-                   <p editable-text='stuff.name' ng-model="stuff.name" ng-change="updateTask()">{{ stuff.name || "empty"}}  </p>
+                   <p editable-text='stuff.name' ng-model="stuff.name" ng-change="updateTask.$save(stuff)">{{ stuff.name || "empty"}}  </p>
                 </div>
                     <!-- <p class="items"> {{ data | json }}</p> -->
                     <button ng-click="deleteTask(stuff.$id)"> remove </button>

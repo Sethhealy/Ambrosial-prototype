@@ -21,5 +21,9 @@ app.controller("HomeController",['$scope','$firebase',function($scope,$firebase)
         console.log("the Object: ", obj);
         var updateRef = new Firebase(url + id);
         $scope.data.$save(id);
+    };
+    $scope.taskPriority = function (){
+
     }
+
 }])
