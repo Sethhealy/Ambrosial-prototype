@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 			}
 		},
 		wiredep: {
-			task: {
+			target: {
 				src: ['index.html']
 			}
 		},

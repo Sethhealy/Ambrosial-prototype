@@ -1,17 +1,34 @@
+body{
+    width:960px;
+    margin:0 auto;
+    height:100%;
+}
     /*  this targets the area where we are working */
 .container{
     margin-top: 10px;
     width:300px;
+}
+
+.legend{
+    width:300px;
+    background-color: lightblue;
+    margin-left: 100px;
 }
     /* This targets the boxes inside the container*/
 .list{
     width:400px;
     height:90px;
     background-color:#74cc63;
-    float:left;
     margin:10px;
     position:relative;
 }
+.priority{
+    width:40px;
+    height: 90px;
+    float:left;
+    position: relative;
+}
+
     /* This targets the items inside the list   */
 .items{
         width:100px;
@@ -30,10 +47,12 @@
 }
     /* This targets the input field */
 .add{
-    width:145px;
+    width:150px;
     height:22px;
-    margin-top: 10px;
-    margin-left: 25px;
+}
+form{
+    width:400px;
+    margin-left: 40px;
 }
     /* This targets all the buttons */
 button{
@@ -41,21 +60,40 @@ button{
     border-radius:15px;
     background-color: #9f089f;
 }
-    /* This targets the paragraphs inside the buttons */
-button p{
-    color:#f4f4f4;
+.red{
+    background-color: red;
 }
-    /* This targets the checkbox inside the list */
-.checkbox{
-    position: absolute;
-    top: 5px;
-    right: 5px;
+.yellow{
+    background-color: yellow;
 }
-.userscontainer{
-    width:600px;
-    clear:both;
+.green{
+    background-color: green;
 }
-.contentmanager{
-    width:600px;
-    clear:both;
+.right{
+    float:right;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+
+.text{
+    width:100%;
+    margin-left: 20px;
+    position: relative;
+    top:32px;
+}
+.row{
+    margin-left: 10px;
+}
+.panel-group{
+    width:450px !important;
+}
+.space{
+    margin-left: 10px;
+}
+.Title{
+    width:300px;
+    margin-top: 70px;
+}
+li{
+    list-style-type:none;
 }

@@ -1,0 +1,16 @@
+<form name="loginform" ng-submit="login()" novalidate>
+        <div class="form-group">
+            <label for="username">Email</label>
+            <input type="text" name="email" ng-model="user.email" placeholder="Email"
+            ng-required="true">
+            <p ng-show="loginform.email.$invalid && loginform.email.$touched">Email is not valid</p>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" ng-model="user.pass" placeholder="password"
+            ng-required="true">
+            <p ng-show="loginform.password.$invalid && loginform.password.$touched">Password is required</p>
+        </div>
+            <button ng-disabled="loginform.$invalid" type="submit" ng-click="loginSubmit()"> Login </button>
+</form>
+

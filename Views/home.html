@@ -1,18 +1,45 @@
-            <div class="container">
-                <div class="list" ng-repeat="stuff in data">
-            <!--Where the add feature places the Obj-->
-                <div>
-                   <p editable-text='stuff.name' ng-model="stuff.name" ng-change="updateTask.$save(stuff)">{{ stuff.name || "empty"}}  </p>
+            <div class="Title">
+                <h1> CaterMe </h1>
+            </div>
+            <nav class="main-menu">
+            <ul>
+            <li><a href="#/login"> Login </a></li>
+            <li><a href="#/signup"> Signup </a></li>
+            </ul>
+            </nav>
+            <div class="col-lg-6">
+                <div ng-controller="AccordionCtrl">
+                    <accordion close-others="oneAtATime">
+                    <accordion-group  heading="Gardin Variety" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                        <div class="list" ng-repeat="stuff in data">
+                        <!-- Placing an empty div here so I can make a box for my priority level -->
+                        <div class="priority" ng-class= "{red: stuff.priority == 'High' , yellow: stuff.priority == 'Medium' , green: stuff.priority == 'Low'}">
+                        </div>
+                            <!-- Editing tasks -->
+                            <a href="#" class="text" editable-text='stuff.name' onaftersave="data.$save(stuff)" maxlength="30"> {{ stuff.name || "empty"}} </a>
+                            <!-- <p class="items"> {{ data | json }}</p> -->
+
+                            <button ng-click="data.$remove(stuff)" class="right"> complete </button>
+                        </div>
+                    </accordion-group>
+                    </accordion>
                 </div>
-                    <!-- <p class="items"> {{ data | json }}</p> -->
-                    <button ng-click="deleteTask(stuff.$id)"> remove </button>
-                </div>
-              <input class="add" ng-model="taskInput" type="text" maxlength="15"
-              ng-required="true"/>
-              <br>
-            <select class="add" ng-model="taskPriority">
+        <!--Where the add feature places the Obj-->
+        <form name="taskForm" ng-submit="addTask()">
+            <input class="add" ng-model="task.name" type="text" maxlength="30" placeholder="New Task" required/>
+            <select class="add space" ng-model="task.priority" required>
+              <option value ="None" ng-selected="selected" ng-disabled="none">None</option>
               <option value="Low">Low</option>
               <option value="Medium">Medium</option>
               <option value="High">High</option>
             </select>
-            <button ng-click="addTask()"><p>Enter</p></button>
+            <button type="submit" class="space" ng-disabled="taskForm.$invalid"><p>Enter</p>
+            </button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 legend">
+            <ol>
+                <img src="images/priority.svg" alt="Priority list">
+            </ul>
+        </div>

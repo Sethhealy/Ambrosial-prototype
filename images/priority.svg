@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 400 300" enable-background="new 0 0 400 300" xml:space="preserve">
+<rect x="6.4" y="17" fill="#56B947" width="125" height="47.3"/>
+<rect x="6.4" y="130.5" fill="#F1E912" width="125" height="47.3"/>
+<rect x="6.4" y="248.2" fill="#ED1F24" width="125" height="47.3"/>
+<text transform="matrix(1 0 0 1 195.6601 46.729)" font-family="'MyriadPro-Regular'" font-size="19.4144">Low Priority</text>
+<text transform="matrix(1 0 0 1 195.6601 161.394)" font-family="'MyriadPro-Regular'" font-size="19.4144">Medium Priority</text>
+<text transform="matrix(1 0 0 1 195.6601 277.2744)" font-family="'MyriadPro-Regular'" font-size="19.4144">High Priority</text>
+</svg>

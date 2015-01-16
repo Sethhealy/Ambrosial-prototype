@@ -8,22 +8,35 @@ app.controller("HomeController",['$scope','$firebase',function($scope,$firebase)
     console.log("my data: ", $scope.data);
 
     $scope.addTask = function (){
-        sync.$push({ name: $scope.taskInput});
-        $scope.taskInput = "";
+        sync.$push($scope.task);
+        $scope.task = {};
     };
-
-    $scope.deleteTask = function (id){
-        var removeRef = new Firebase(url + id);
-        removeRef.remove();
-    };
-
-    $scope.updateTask = function (){
-        console.log("the Object: ", obj);
-        var updateRef = new Firebase(url + id);
-        $scope.data.$save(id);
-    };
-    $scope.taskPriority = function (){
-
-    }
-
+    $scope.selected = true;
+    $scope.none = true;
 }])
+app.controller('AccordionCtrl', function ($scope) {
+  $scope.oneAtATime = true;
+
+  $scope.groups = [
+    {
+      title: 'Dynamic Group Header - 1',
+      content: 'Dynamic Group Body - 1'
+    },
+    {
+      title: 'Dynamic Group Header - 2',
+      content: 'Dynamic Group Body - 2'
+    }
+  ];
+
+  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+  $scope.addItem = function() {
+    var newItemNo = $scope.items.length + 1;
+    $scope.items.push('Item ' + newItemNo);
+  };
+
+  $scope.status = {
+    isFirstOpen: true,
+    isFirstDisabled: false
+  };
+});

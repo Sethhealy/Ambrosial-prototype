@@ -1,0 +1,15 @@
+<form name="signupform" ng-submit="signup()" novalidate>
+        <div class="form-group">
+            <label for="username">Email</label>
+            <input type="text" name="email" ng-model="user.email" placeholder="Email"
+            ng-required="true">
+            <p ng-show="signupform.email.$invalid && signupform.email.$touched">Email is not valid</p>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" ng-model="user.pass" placeholder="password"
+            ng-required="true">
+            <p ng-show="signupform.password.$invalid && signupform.password.$touched">Password is required</p>
+        </div>
+            <button ng-disabled="signupform.$invalid" type="submit" ng-click="signupSubmit()"> Signup </button>
+</form>
