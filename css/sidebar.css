@@ -20,7 +20,7 @@
     overflow-x: hidden;
 }
 .main-menu:hover, nav.main-menu.expanded{
-    width:400px;
+    width:200px;
     overflow:hidden;
     opacity:1;
 }

@@ -4,8 +4,8 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
     var sync = $firebase(ref);
 
     $scope.data=sync.$asArray();
-    console.log("my data: ", $scope.data);
-    console.log("username", $rootScope.user);
+    // console.log("my data: ", $scope.data);
+    // console.log("username", $rootScope.user);
     $scope.addTask = function (){
         console.log($scope.task);
         sync.$push($scope.task);
@@ -24,7 +24,7 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
             var userRef = new Firebase(url+"users/"+authData.uid);
             var sync = $firebase(userRef);
             $scope.user = sync.$asObject();
-            console.log($scope.user);
+            // console.log($scope.user);
         }else{
             $location.path('/')
         }

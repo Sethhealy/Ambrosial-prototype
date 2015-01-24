@@ -3,8 +3,8 @@
             </div>
             <nav class="main-menu">
             <ul>
-            <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Signup </a></li>
-            <li ng-show="user"> {{user.firstname}} <a href="#/" ng-click="authObj.$unauth()">Signout</a></li>
+                <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Signup </a></li>
+                <li ng-show="user"> {{user.firstname}} <a href="#/" ng-click="authObj.$unauth()">Signout</a></li>
             </ul>
             </nav>
             <div class="col-lg-6">
@@ -40,7 +40,8 @@
                     <form name="taskForm" ng-submit="addTask()">
                         <input class="add" ng-model="$parent.task.name" type="text" maxlength="30" placeholder="New Task" required/>
                         <select class="add space" ng-model="$parent.task.priority" required>
-                          <option value ="None" ng-selected="selected" ng-disabled="none">None</option>
+                          <option value ="None" ng-selected="selected" ng-disabled="none">
+                          None</option>
                           <option value="Low">Low</option>
                           <option value="Medium">Medium</option>
                           <option value="High">High</option>
