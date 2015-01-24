@@ -3,43 +3,60 @@
             </div>
             <nav class="main-menu">
             <ul>
-            <li><a href="#/login"> Login </a></li>
-            <li><a href="#/signup"> Signup </a></li>
+            <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Signup </a></li>
+            <li ng-show="user"> {{user.firstname}} <a href="#/" ng-click="authObj.$unauth()">Signout</a></li>
             </ul>
             </nav>
             <div class="col-lg-6">
-                <div ng-controller="AccordionCtrl">
+                <div class="background">
                     <accordion close-others="oneAtATime">
-                    <accordion-group  heading="Gardin Variety" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-                        <div class="list" ng-repeat="stuff in data">
+                    <accordion-group  heading="Gardin Variety" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" class="background">
+                        <div class="list" ng-class= "{status: stuff.status == 'Taken'}" ng-repeat="stuff in data">
                         <!-- Placing an empty div here so I can make a box for my priority level -->
-                        <div class="priority" ng-class= "{red: stuff.priority == 'High' , yellow: stuff.priority == 'Medium' , green: stuff.priority == 'Low'}">
+                        <div  class="priority" ng-class= "{red: stuff.priority == 'High' , yellow: stuff.priority == 'Medium' , green: stuff.priority == 'Low'}">
                         </div>
                             <!-- Editing tasks -->
-                            <a href="#" class="text" editable-text='stuff.name' onaftersave="data.$save(stuff)" maxlength="30"> {{ stuff.name || "empty"}} </a>
+                            <div ng-if="user.usertype == 'admin'">
+                                <a href="#" class="text" editable-text='stuff.name' onaftersave="data.$save(stuff)" maxlength="30"> {{ stuff.name || "empty"}} </a>
                             <!-- <p class="items"> {{ data | json }}</p> -->
-
-                            <button ng-click="data.$remove(stuff)" class="right"> complete </button>
+                            <div class = "top">
+                                <button ng-click="data.$remove(stuff)"> Delete </button>
+                            </div>
+                            </div>
+                            <div ng-if="user.usertype == 'user'">
+                                <p class="usertext"> {{ stuff.name || "empty" }} </p>
+                            <!-- <p class="items"> {{ data | json }}</p> -->
+                                    <div class = "right">
+                                        <button ng-click="update(stuff)"> start </button>
+                                        <button ng-click="data.$remove(stuff)"> complete </button>
+                                    </div>
+                            </div>
                         </div>
                     </accordion-group>
                     </accordion>
                 </div>
-        <!--Where the add feature places the Obj-->
-        <form name="taskForm" ng-submit="addTask()">
-            <input class="add" ng-model="task.name" type="text" maxlength="30" placeholder="New Task" required/>
-            <select class="add space" ng-model="task.priority" required>
-              <option value ="None" ng-selected="selected" ng-disabled="none">None</option>
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option>
-            </select>
-            <button type="submit" class="space" ng-disabled="taskForm.$invalid"><p>Enter</p>
-            </button>
-        </form>
-    </div>
-    <div class="row">
-        <div class="col-lg-4 legend">
-            <ol>
-                <img src="images/priority.svg" alt="Priority list">
-            </ul>
-        </div>
+                <!--Where the add feature places the Obj-->
+                <div ng-if="user.usertype == 'admin'">
+                    <form name="taskForm" ng-submit="addTask()">
+                        <input class="add" ng-model="$parent.task.name" type="text" maxlength="30" placeholder="New Task" required/>
+                        <select class="add space" ng-model="$parent.task.priority" required>
+                          <option value ="None" ng-selected="selected" ng-disabled="none">None</option>
+                          <option value="Low">Low</option>
+                          <option value="Medium">Medium</option>
+                          <option value="High">High</option>
+                        </select>
+                        <button type="submit" class="space" ng-disabled="taskForm.$invalid"><p>Enter</p>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="legend">
+                        <ul>
+                            <img src="images/priority.svg" alt="Priority list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+

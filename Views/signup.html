@@ -1,6 +1,11 @@
 <form name="signupform" ng-submit="signup()" novalidate>
         <div class="form-group">
-            <label for="username">Email</label>
+            <label for ="firstname">First Name</label>
+            <input type="text" name="name" ng-model="user.name" placeholder="First Name"
+            ng-required="true">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
             <input type="text" name="email" ng-model="user.email" placeholder="Email"
             ng-required="true">
             <p ng-show="signupform.email.$invalid && signupform.email.$touched">Email is not valid</p>

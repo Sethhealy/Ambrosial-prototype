@@ -1,6 +1,11 @@
-<form name="loginform" ng-submit="login()" novalidate>
+<div class="container-fluid">
+    <div class="row">
+<h1> CaterMe </h1>
+</br>
+    <h2>Login</h2>
+<form class="login" name="loginform" ng-submit="login()" novalidate>
         <div class="form-group">
-            <label for="username">Email</label>
+            <label class="email" for="username">Email:</label>
             <input type="text" name="email" ng-model="user.email" placeholder="Email"
             ng-required="true">
             <p ng-show="loginform.email.$invalid && loginform.email.$touched">Email is not valid</p>
@@ -13,4 +18,5 @@
         </div>
             <button ng-disabled="loginform.$invalid" type="submit" ng-click="loginSubmit()"> Login </button>
 </form>
-
+</div>
+</div>

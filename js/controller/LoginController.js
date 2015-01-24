@@ -3,38 +3,40 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
     var ref = new Firebase(url);
     var sync = $firebase(ref);
 
+    var userRef = new Firebase(url+"users");
+    $scope.syncUser = $firebase(userRef);
+    $scope.newUser = $scope.syncUser.$asObject();
+
     $scope.data=sync.$asArray();
     console.log("my data: ", $scope.data);
 
-    $scope.loginSubmit = function(){
-    var url = "https://caterme.firebaseio.com/";
-    var ref = new Firebase(url);
-
     $scope.authObj = $firebaseAuth(ref);
+
+    $scope.loginSubmit = function(){
     $scope.login = function(){
         $scope.authObj.$authWithPassword({
             email: $scope.user.email,
             password: $scope.user.pass
         }).then(function(authData){
             $rootScope.authData = authData;
-            $location.path('/');
+            console.log("Logged in as:", authData.uid);
+            $location.path('/home');
         }).catch(function(error){
             console.log(error);
             $scope.user.pass = "";
         })
     }
     // login ends
-    $scope.login();
 
     }
 
     // signup starts
 
-    $scope.signupSubmit = function(){
-    var url = "https://caterme.firebaseio.com/";
-    var ref = new Firebase(url);
+    var userRef = new Firebase(url+"users");
+    $scope.syncUser = $firebase(userRef);
+    $scope.newUser = $scope.syncUser.$asObject();
 
-    $scope.authObj = $firebaseAuth(ref);
+    $scope.signupSubmit = function(){
 
     $scope.signup = function(){
     $scope.authObj.$createUser({ email: $scope.user.email, password: $scope.user.pass
@@ -44,13 +46,21 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
         password: $scope.user.pass
       });
     }).then(function(authData) {
-      console.log("Logged in as:", authData.uid);
-      $location.path('/');
+      console.log("Signed up as:", authData.uid);
+      $scope.syncUser.$set(
+            authData.uid, {
+                uid: authData.uid,
+                firstname: $scope.user.name,
+                email: $scope.user.email,
+                password: $scope.user.pass,
+                usertype: "user"
+            }
+        );
+      $location.path('/home');
     }).catch(function(error) {
       console.error("Error: ", error);
     });
     // signup ends
-    $scope.signup();
 
     }
 }

@@ -4,11 +4,11 @@ var app = angular.module("Caterme", ['ngRoute', 'xeditable','ui.bootstrap', 'fir
 
         $routeProvider
         .when('/',{
-            templateUrl:'Views/home.html',
-            controller: 'HomeController'
-        }).when('/login',{
             templateUrl:'Views/login.html',
             controller: 'LoginController'
+        }).when('/home',{
+            templateUrl:'Views/home.html',
+            controller: 'HomeController'
         }).when('/signup',{
             templateUrl:'Views/signup.html',
             controller: 'LoginController'

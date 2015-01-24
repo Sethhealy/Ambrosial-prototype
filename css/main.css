@@ -2,6 +2,7 @@ body{
     width:960px;
     margin:0 auto;
     height:100%;
+    background-color: #00C5CD;
 }
     /*  this targets the area where we are working */
 .container{
@@ -12,7 +13,7 @@ body{
 .legend{
     width:300px;
     background-color: lightblue;
-    margin-left: 100px;
+    margin-left: 50px;
 }
     /* This targets the boxes inside the container*/
 .list{
@@ -81,6 +82,13 @@ button{
     position: relative;
     top:32px;
 }
+.usertext{
+    width:100%;
+    left:20px;
+    position: relative;
+    top:32px;
+}
+
 .row{
     margin-left: 10px;
 }
@@ -96,4 +104,35 @@ button{
 }
 li{
     list-style-type:none;
+}
+.login{
+    width:300px;
+}
+.container-fluid{
+    width:300px;
+    margin:0 auto;
+}
+.right{
+    margin-top: 5px;
+}
+.top{
+    float:right;
+    margin-right: 10px;
+    margin-top: 35px;
+}
+.score{
+    width:200px;
+    background-color: lightblue;
+    margin-left: 60px;
+    margin-top: 40px;
+}
+.side{
+    width:400px;
+    float:right;
+}
+.background{
+    background-color: lightblue;
+}
+.status{
+    background-color: orange;
 }
