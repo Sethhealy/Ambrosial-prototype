@@ -8,10 +8,10 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
     var sync = $firebase(ref);
 
     // scope is allowing my data to be called as an array so I can pull from it.
-    $scope.data=sync.$asArray();
+    $scope.tasklist=sync.$asArray();
 
     // I'm consoling my data to make sure it is working.
-    // console.log("my data: ", $scope.data);
+    // console.log("my data: ", $scope.tasklist);
 
     // Here I'm making a function allowing the admin to create new tasks.
     $scope.addTask = function (){
@@ -21,10 +21,10 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
     };
 
     // Here I'm making a function to update the status of the tasks so that other users can see what is being worked on.
-    $scope.update = function(data){
-        // console.log("This", data)
-        data.status = "Taken";
-        $scope.data.$save(data);
+    $scope.update = function(tasklist){
+        // console.log("This", tasklist)
+        tasklist.status = "Taken";
+        $scope.tasklist.$save(tasklist);
     }
 
     // I'm setting up authorization so the user can be called and displayed.
